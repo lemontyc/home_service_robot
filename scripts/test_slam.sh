@@ -10,4 +10,4 @@ xterm  -e  " roslaunch turtlebot_rviz_launchers view_navigation.launch " &
 sleep 
 # Manually control the robot with keyboard commands
 xterm  -e  " roslaunch turtlebot_teleop keyboard_teleop.launch " &
-sleep 
+sleep 5
