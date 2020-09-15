@@ -1,8 +1,8 @@
 #!/bin/sh
 # Launch  turtlebot in your environment
-xterm  -e  " roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=/home/workspace/catkin_ws/src/home_service_robot/map/MyAppartment.world " &
+xterm  -e  " roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=$(rospack find map)/world/MyAppartment.world" &
 sleep 5
-# Perform SLAM
+Perform SLAM
 xterm  -e  " roslaunch turtlebot_gazebo gmapping_demo.launch " &
 sleep 5
 # Observe the map in rviz
