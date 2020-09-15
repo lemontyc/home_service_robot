@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(pick_objects)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   move_base_msgs
   roscpp
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -149,6 +150,12 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+add_executable(pick_objects src/pick_objects.cpp)
+target_link_libraries(pick_objects ${catkin_LIBRARIES})
+#add_dependencies(pick_objects pick_objects_generate_messages_cpp)
 
 #############
 ## Install ##
